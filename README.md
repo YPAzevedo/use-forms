@@ -1,2 +1,4 @@
 # use-forms
-Created with CodeSandbox
+
+
+📑  A simple forms hook for uncontrolled inputs, with validations. based one use-form-hooks
