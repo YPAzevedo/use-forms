@@ -37,7 +37,7 @@ export default function useForms() {
     if (validations.matchesWith && value !== data[validations.matchesWith[0]]) {
       return validations.matchesWith[1] || "Not matching";
     }
-    if (validations.customPredicate && !validations.customPredicate[0](value)) {
+    if (validations.customPredicate && !validations.customPredicate[0](value, data)) {
       return validations.customPredicate[1] || "Not matching custom predicate";
     }
     return false;

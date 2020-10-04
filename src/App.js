@@ -100,6 +100,39 @@ export default function App() {
           <small style={{ color: "red" }}>{errors.confirmPassword}</small>
         )}
         <br />
+        <label htmlFor="startDate">Start Date: </label>
+        <input
+          ref={register({
+            required: [true, "Start Date required"]
+          })}
+          name="startDate"
+          type="date"
+          placeholder="Start Date"
+        />
+        <br />
+        {errors.startDate && (
+          <small style={{ color: "red" }}>{errors.startDate}</small>
+        )}
+        <br />
+        <label htmlFor="endDate">Password: </label>
+        <input
+          ref={register({
+            required: [true, "End Date required"],
+            customPredicate: [
+              (value, formData) =>
+                new Date(value) > new Date(formData.startDate),
+              "End date must be after start date."
+            ]
+          })}
+          name="endDate"
+          type="date"
+          placeholder="Your endDate"
+        />
+        <br />
+        {errors.endDate && (
+          <small style={{ color: "red" }}>{errors.endDate}</small>
+        )}
+        <br />
         <button type="submit">Submit</button>
       </form>
     </div>
